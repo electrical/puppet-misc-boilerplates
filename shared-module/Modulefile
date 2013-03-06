@@ -1,0 +1,10 @@
+name    'ispavailability-boilerplate'
+version '0.0.1'
+source 'https://github.com/electrical/puppet-boiletplate'
+author 'ispavailability'
+license 'Apache License, Version 2.0'
+summary 'Module for managing and configuring boilerplate'
+description 'Module for managing and configuring boilerplate'
+project_page 'https://github.com/electrical/puppet-boilerplate'
+dependency 'puppetlabs/stdlib', '>= 3.0.0'
+
