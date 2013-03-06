@@ -28,6 +28,6 @@ Install everything but disable service(s) afterwards:
 
 Disable automated restart of boilerplate on config file change:
 
-     class { 'elasticsearch':
+     class { 'boilerplate':
        restart_on_change => false
      }
