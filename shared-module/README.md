@@ -4,8 +4,6 @@ A puppet module for managing and configuring boilerplate
 
 ## Testing
 
-Testing is done against puppet 2.7.x 3.0.x and 3.1.x
-
 [![Build Status](https://travis-ci.org/electrical/puppet-boilerplate.png?branch=master)](https://travis-ci.org/electrical/puppet-boilerplate)
 
 ## Usage

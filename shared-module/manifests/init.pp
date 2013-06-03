@@ -94,6 +94,10 @@ class boilerplate(
   $version           = false
 ) inherits boilerplate::params {
 
+  anchor {'boilerplate::begin': }
+  anchor {'boilerplate::end': }
+
+
   #### Validate parameters
 
   # ensure
@@ -129,17 +133,26 @@ class boilerplate(
   #### Manage relationships
 
   if $ensure == 'present' {
+
     # we need the software before configuring it
-    Class['boilerplate::package'] -> Class['boilerplate::config']   # FIXME/TODO: Remove this relationship or this comment. See "config.pp" for more information.
+    Anchor['boilerplate::begin']
+    -> Class['boilerplate::package']
+    -> Class['boilerplate::config'] # FIXME/TODO: Remove this relationship or this comment. See "config.pp" for more information.
 
     # we need the software and a working configuration before running a service
     Class['boilerplate::package'] -> Class['boilerplate::service']
     Class['boilerplate::config']  -> Class['boilerplate::service']  # FIXME/TODO: Remove this relationship or this comment. See "config.pp" for more information.
 
+    Class['boilerplate::service'] -> Anchor['boilerplate::end']
+
   } else {
 
     # make sure all services are getting stopped before software removal
-    Class['boilerplate::service'] -> Class['boilerplate::package']
+    Anchor['boilerplate::begin']
+    -> Class['boilerplate::service']
+    -> Class['boilerplate::package']
+    -> Anchor['boilerplate::end']
+
   }
 
 }

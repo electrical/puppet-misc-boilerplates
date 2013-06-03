@@ -47,7 +47,7 @@ class boilerplate::params {
 
   # packages
   case $::operatingsystem {
-    'RedHat', 'CentOS', 'Fedora', 'Scientific', 'RedHat', 'Amazon': {
+    'RedHat', 'CentOS', 'Fedora', 'Scientific', 'Amazon', 'OracleLinux': {
       # main application
       $package = [ 'FIXME/TODO' ]
     }
@@ -63,7 +63,7 @@ class boilerplate::params {
 
   # service parameters
   case $::operatingsystem {
-    'RedHat', 'CentOS', 'Fedora', 'Scientific', 'RedHat', 'Amazon': {
+    'RedHat', 'CentOS', 'Fedora', 'Scientific', 'Amazon', 'OracleLinux': {
       $service_name       = 'FIXME/TODO'
       $service_hasrestart = true
       $service_hasstatus  = true
